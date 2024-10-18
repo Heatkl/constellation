@@ -104,26 +104,21 @@ public class ConstellationDisplay : MonoBehaviour
             {
                 int currentStarId = queue.Dequeue();
                 Vector3 currentPosition = starObjects[currentStarId].transform.position;
-                try
-                {
-                    // —оедин€ем с сосед€ми, которые еще не посещены
-                    foreach (var neighbor in adjacencyList[currentStarId])
-                {
-                    
-                        if (!visited.Contains(neighbor))
-                        {
-                            Vector3 neighborPosition = starObjects[neighbor].transform.position;
-                            LineRenderer lineRenderer = CreateLineBetween(currentPosition, neighborPosition);
-                            animations.Add(AnimateLine(lineRenderer, currentPosition, neighborPosition));
 
-                            // ƒобавл€ем соседа в очередь дл€ последующих соединений
-                            queue.Enqueue(neighbor);
-                            visited.Add(neighbor);
-                        }
-                    
+                // —оедин€ем с сосед€ми, которые еще не посещены
+                foreach (var neighbor in adjacencyList[currentStarId])
+                {
+                    if (!visited.Contains(neighbor))
+                    {
+                        Vector3 neighborPosition = starObjects[neighbor].transform.position;
+                        LineRenderer lineRenderer = CreateLineBetween(currentPosition, neighborPosition);
+                        animations.Add(AnimateLine(lineRenderer, currentPosition, neighborPosition));
+
+                        // ƒобавл€ем соседа в очередь дл€ последующих соединений
+                        queue.Enqueue(neighbor);
+                        visited.Add(neighbor);
+                    }
                 }
-                }
-                catch { }
             }
 
             // «апускаем все анимации текущего уровн€ одновременно

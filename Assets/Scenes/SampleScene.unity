@@ -592,6 +592,10 @@ MonoBehaviour:
   starPrefab: {fileID: 1277375897662796397, guid: 76c0d7bcfa79eca4497034d34d5d088e,
     type: 3}
   lineMaterial: {fileID: 2100000, guid: bc9849a13cf66a245b67d833f2137d80, type: 2}
+  jsonFile: {fileID: 4900000, guid: c72b4956c118883438ca8b515a553dac, type: 3}
+  animationDuration: 1
+  constellations:
+    items: []
   loadJsonButton: {fileID: 1997745016}
 --- !u!4 &884456017
 Transform:
